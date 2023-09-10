@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Holidays;
 
+use App\DTO\HolidaysDTO;
 use App\Models\Holidays;
 use Database\Seeders\UserSeeder;
 
@@ -37,15 +38,7 @@ class HolidaysIndexTest extends TestCase
 
 
         foreach ($holidays as $holiday){
-            $holidayData = [
-                'id'              => $holiday['id'],
-                'end_date'        => $holiday['end_date'],
-                'start_date'      => $holiday['start_date'],
-                'created_at'      => $holiday['created_at'],
-                'updated_at'      => $holiday['updated_at'],
-                'contracts_id'    => $holiday['contracts_id'],
-            ];
-
+            $holidayData = HolidaysDTO::from($holiday)->toArray();
             $response->assertJsonFragment($holidayData);
         }
 

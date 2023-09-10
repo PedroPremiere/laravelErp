@@ -1,0 +1,220 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/contracts": {
+            "get": {
+                "operationId": "c6ba69a44621c0051eaaa1d3b16fdecc",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "List of users",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ContractSchema"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/holidays": {
+            "get": {
+                "operationId": "de5dec31cc0563194f006729a0a6f24c",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "List of users",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/HolidaySchema"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "operationId": "c41428aadba3fb93c574cd8ba5302b27",
+                "responses": {
+                    "200": {
+                        "description": "An example endpoint",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "List of users",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/UserSchema"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ContractSchema": {
+                "properties": {
+                    "id": {
+                        "description": "Contract identifier",
+                        "type": "integer",
+                        "example": "1",
+                        "nullable": "false"
+                    },
+                    "position": {
+                        "description": "Position name",
+                        "type": "string",
+                        "example": "driver",
+                        "nullable": "false"
+                    },
+                    "salary": {
+                        "description": "salary in USD",
+                        "type": "integer",
+                        "example": "6",
+                        "nullable": "false"
+                    },
+                    "start_date": {
+                        "description": "Contract start date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "end_date": {
+                        "description": "Contract end date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "holidays_per_year": {
+                        "description": "Number of holidays per year",
+                        "type": "integer",
+                        "example": "20",
+                        "nullable": "false"
+                    },
+                    "updated_at": {
+                        "description": "User last update date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "created_at": {
+                        "description": "Contract creation date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    }
+                },
+                "type": "object"
+            },
+            "HolidaySchema": {
+                "properties": {
+                    "id": {
+                        "description": "Contract identifier",
+                        "type": "integer",
+                        "example": "1",
+                        "nullable": "false"
+                    },
+                    "start_date": {
+                        "description": "Contract start date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "end_date": {
+                        "description": "Contract end date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "updated_at": {
+                        "description": "User last update date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "created_at": {
+                        "description": "Contract creation date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "contracts_id": {
+                        "description": "Contract identifier",
+                        "type": "integer",
+                        "example": "1",
+                        "nullable": "false"
+                    }
+                },
+                "type": "object"
+            },
+            "UserSchema": {
+                "properties": {
+                    "id": {
+                        "description": "User identifier",
+                        "type": "integer",
+                        "example": "1",
+                        "nullable": "false"
+                    },
+                    "name": {
+                        "description": "User name",
+                        "type": "string",
+                        "example": "Gustav Bergren",
+                        "nullable": "false"
+                    },
+                    "email": {
+                        "description": "User email",
+                        "type": "string",
+                        "example": "user@example.com",
+                        "nullable": "false"
+                    },
+                    "$created_at": {
+                        "description": "User creation date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    },
+                    "updated_at": {
+                        "description": "User last update date",
+                        "type": "string",
+                        "example": "2023-09-10 15:57:08",
+                        "nullable": "false"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
