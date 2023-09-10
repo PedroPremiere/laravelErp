@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Contracts;
 
+use App\DTO\ContractsDTO;
 use App\Models\Contracts;
 use Database\Seeders\ContractSeeder;
 
@@ -12,6 +13,7 @@ class ContractsIndexTest extends TestCase
     /**
      * A basic feature test example.
      */
+
     public function test_example(): void
     {
         $contractSeeder = new ContractSeeder();
@@ -24,7 +26,8 @@ class ContractsIndexTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertJsonStructure([
-            '*'=>[
+            '*' => [
+                'id',
                 'position',
                 'salary',
                 'start_date',
@@ -35,16 +38,8 @@ class ContractsIndexTest extends TestCase
             ]
         ]);
 
-        foreach ($contracts as $contract){
-            $contractData = [
-                'position'          => $contract['position'],
-                'salary'            => $contract['salary'],
-                'start_date'        => $contract['start_date'],
-                'end_date'          => $contract['end_date'],
-                'holidays_per_year' => $contract['holidays_per_year'],
-                'created_at'        => $contract['created_at'],
-                'updated_at'        => $contract['updated_at'],
-            ];
+        foreach ($contracts as $contract) {
+            $contractData = ContractsDTO::from($contract)->toArray();
 
             $response->assertJsonFragment($contractData);
         }

@@ -2,6 +2,7 @@
 
 namespace Tests\Feature\Users;
 
+use App\DTO\UserDTO;
 use App\Models\User;
 use Database\Seeders\UserSeeder;
 
@@ -28,21 +29,13 @@ class UsersIndexTest extends TestCase
                     'id',
                     'name',
                     'email',
-                    'email_verified_at',
                     'created_at',
                     'updated_at'
                 ]
         ]);
 
         foreach ($users as $user){
-            $userData = [
-                'id'                => $user['id'],
-                'name'              => $user['name'],
-                'email'             => $user['email'],
-                'email_verified_at' => $user['email_verified_at'],
-                'created_at'        => $user['created_at'],
-                'updated_at'        => $user['updated_at'],
-            ];
+            $userData = UserDTO::from($user)->toArray();
 
             $response->assertJsonFragment($userData);
         }

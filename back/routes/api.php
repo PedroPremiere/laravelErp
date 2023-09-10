@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [ApiWorksController::class, 'use']);
-Route::get('/users', [UsersIndexController::class, 'use']);
-Route::get('/contracts', [ContractsIndexController::class, 'use']);
-Route::get('/holidays', [HolidaysIndexController::class, 'use']);
+Route::get('/users', [UsersIndexController::class, '__invoke']);
+Route::get('/contracts', [ContractsIndexController::class, '__invoke']);
+Route::get('/holidays', [HolidaysIndexController::class, '__invoke']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
