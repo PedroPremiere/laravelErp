@@ -9,5 +9,4 @@ class ApiWorksController extends Controller
     {
         return 'Api Works';
     }
-
 }
