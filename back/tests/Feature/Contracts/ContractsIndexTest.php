@@ -2,10 +2,9 @@
 
 namespace Tests\Feature\Contracts;
 
-use App\DTO\ContractsDTO;
+use App\DTO\Contracts\ContractsDTO;
 use App\Models\Contracts;
 use Database\Seeders\ContractSeeder;
-
 use Tests\TestCase;
 
 class ContractsIndexTest extends TestCase

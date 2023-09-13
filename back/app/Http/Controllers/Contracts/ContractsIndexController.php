@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Contracts;
 
-use App\DTO\ContractsDTO;
-use App\Models\Contracts;
+use App\DTO\Contracts\ContractsDTO;
 use App\Http\Controllers\Controller;
+use App\Models\Contracts;
 
 class ContractsIndexController extends Controller
 {
