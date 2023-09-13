@@ -6,6 +6,7 @@
     use App\Http\Controllers\Holidays\HolidaysIndexController;
     use App\Http\Controllers\Holidays\HolidaysShowController;
     use App\Http\Controllers\Users\UserCreateController;
+    use App\Http\Controllers\Users\UserDeleteController;
     use App\Http\Controllers\Users\UserShowController;
     use App\Http\Controllers\Users\UsersIndexController;
     use Illuminate\Http\Request;
@@ -25,6 +26,7 @@
     Route::get('/users', [UsersIndexController::class, '__invoke']);
     Route::post('/users', [UserCreateController::class, '__invoke']);
     Route::get('/users/{id}', [UserShowController::class, '__invoke']);
+    Route::delete('/users/{id}', [UserDeleteController::class, '__invoke']);
     Route::get('/contracts', [ContractsIndexController::class, '__invoke']);
     Route::get('/contracts/{id}', [ContractsShowController::class, '__invoke']);
     Route::get('/holidays', [HolidaysIndexController::class, '__invoke']);
