@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Users;
 
-use App\DTO\UserDTO;
-use App\Models\User;
+use App\DTO\Users\UserDTO;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class UsersIndexController extends Controller
 {
